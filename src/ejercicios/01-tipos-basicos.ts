@@ -13,7 +13,7 @@ nombre = 'Eduardo';
 // nombre = 23;
 
 // Indicamos que el tipo de dato que puede recibir es númerico.
-//let hp: number = 95;
+// let hp: number = 95;
 // Indicamos que otro tipo de dato puede recibir.
 let hp: number | string = 95;
 hp = 'FULL';

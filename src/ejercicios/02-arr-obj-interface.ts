@@ -46,7 +46,7 @@ habilidadesString.push('Luis')
 
 // Para hacer nuestros atributos de un tipo estricto haremos
 // uso de las interfaces.
-// Servira como para definir un tipo de Objeto
+// Servira como para definir un tipo de Objeto.
 
 interface Personaje {
     nombre: string;
@@ -56,6 +56,7 @@ interface Personaje {
     puebloNatal?: string;
 }
 
+// Significado de: ?
 // Posteriormente un Objeto heredará la configuración
 // Pero se quejará si le añadimos un atributo despues de haberlo creado,
 // para ello en la definición de la interfaz utilizamos

@@ -31,7 +31,7 @@ console.log('Hola Mundo!');
 class PersonaNormal {
     constructor(
         public nombre: string,
-        public direccion: string
+        public direccion?: string
        ) {}
 }
 
@@ -47,7 +47,7 @@ class Heroe {
         this.edad = edad; 
     }
 
-    ataque(): Personaje {
+    ataque(): void {
         console.log(`Ataque de 15000 Pts`);
         return;
     }
@@ -56,6 +56,8 @@ class Heroe {
 
 
 // Creando atributos con el contructor en 1 línea.
+// de esta forma ya no es necesario declararlos al
+// inicio de la Clase.
 class Hero extends PersonaNormal {
 
     // alterEgo: string;
@@ -64,9 +66,9 @@ class Hero extends PersonaNormal {
 
     constructor( 
         // También los pondemos poner opcionales.
-        public alterEgo?: string,
+        public nombreReal: string,
         public edad?: number,
-        public nombreReal?: string,
+        public alterEgo?: string,
         ){
             super( nombreReal, 'New York');
     }
@@ -98,8 +100,17 @@ interface Personaje {
 // Las interfaces no existen en JavaScript
 // por lo que al compilarce es como si no existieran.
 
+// Heroe no ereda de PersonaNormal, por lo tanto solo
+// lleva 2 argumentos en el constructor.
 const ironman = new Heroe('Ironman',35);
 // const spiderman: Personaje = {}
-const hero = new Hero('Hero',29,'Luis Eduardo');
+
+// Hero hereda de Persona normal, por lo tanto
+// en su constructor le pasa el nombre y sus
+// argumentos son opcionales.
+
+// Recuerda también declararlos en la interfaz
+// como opcionales o si no envia valores por default.
+const hero = new Hero('Luis Eduardo',29,'Hero');
 console.log(ironman);
 console.log(hero);

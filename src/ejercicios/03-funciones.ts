@@ -51,15 +51,22 @@ interface PersonajeLOR {
 
     nombre: string;
     pv: number;
-    aumentarHP: (n: number) => void;
+    // aumentarHP?: (n: number) => void; // Podemos definir esta función como Opcional.
+    aumentarHP?: (n: number) => void | string; // Podemos definir que devuelva 2 tipos de datos.
     mostrarHP: () => void;
 }
 
+// Declaramos otro objeto de prueba
+interface EnemigoLOR {
+    nombre: string;
+    pv: number;
+}
 
 // Ejemplo de una función para curar un personaje.
 // Necesitaremos definir cada argumento con un tipo especifico de dato.
 // LA salida de esta función esta definida como vacia.
-function curar (personaje: PersonajeLOR , curarX: number): void {
+// function curar (personaje: PersonajeLOR , curarX: number): void {
+function curar (personaje: PersonajeLOR | EnemigoLOR, curarX: number): void { // Con varios tipos de Objeto.
     
     personaje.pv += curarX;
     // console.log(personaje);
@@ -73,7 +80,8 @@ const nuevoPersonaje: PersonajeLOR = {
     nombre: 'Luis',
     pv: 50,
     // aumentarHP(n: number){this.pv += n}, // Una sola línea, cosas específicas.
-    aumentarHP(n: number){
+    // aumentarHP(n: number){ // Sin tipar.
+    aumentarHP(n: number): void | string{
         if(this.pv === 100){return;}
         this.pv += n
         console.log(`haz sanado: \"${n} pvs\"`);

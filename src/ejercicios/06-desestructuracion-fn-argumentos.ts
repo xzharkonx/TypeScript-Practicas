@@ -13,7 +13,7 @@
 
 // Definición del Objeto Producto.
 export interface Producto {
-    desc: string;
+     desc: string;
      precio: number;
  }
 
@@ -28,7 +28,7 @@ export interface Producto {
     precio: 350
 }
 
-// Función para calcular el Impuesto Sobre la Venta
+// Función para calcular el Impuesto Sobre la Venta.
 // Mira que esta bien tipada, pero se pueden dejar muchos elementos sin tipar.
 export function calculaISV( productos: Producto[] ): [number, number] {
 // function calculaISV( productos: Producto[] ){
@@ -38,14 +38,20 @@ export function calculaISV( productos: Producto[] ): [number, number] {
 
     // Forma sin tipar.
     // productos.forEach( (producto) => {
+        // total += precio;
     
     // Forma tipada.
     // productos.forEach( (producto: Producto ) => {
-        // total += producto.precio;
+        // total += precio;
 
     // Forma destructurada.
-    productos.forEach( ({precio, desc}) => {
-        total += precio;
+    // productos.forEach( ({precio, desc}) => {
+        // total += precio;
+    
+    // Forma destructurada y con argumentos renombrados.
+    productos.forEach( ({precio: p, desc: d}) => {
+        // total += precio;
+        total += p;
     })
 
     // return total * 0.15;

@@ -37,7 +37,8 @@ const superHeroe: SuperHeroe = {
         pais: 'USA',
         ciudad: 'NY'
     },
-    mostrarDireccion(){
+    // mostrarDireccion(){ // SIn tipar.
+    mostrarDireccion(): string{
         return this.nombre + ', ' + this.direccion.ciudad + ', ' + this.direccion.pais;
     }
 }
