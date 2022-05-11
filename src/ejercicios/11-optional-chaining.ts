@@ -10,7 +10,7 @@ console.log('Hola Mundo!');
 
 interface Pasajero {
     nombre: string;
-    hijos?: string[]
+    hijos?: string[];
 }
 
 const pasajero1: Pasajero = {

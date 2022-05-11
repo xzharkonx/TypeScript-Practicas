@@ -28,6 +28,8 @@ habilidades.push(true);
 
 // Que solo soporte strings
 let habilidadesString: string[] = ["hola", "mundo"];
+// Que soporte strings y números
+let habilidadesStringNum: (string|number)[] = ["hola", "mundo"];
 habilidadesString.push('Luis')
 
 

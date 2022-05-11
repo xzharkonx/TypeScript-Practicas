@@ -30,7 +30,8 @@ export interface Producto {
 
 // Función para calcular el Impuesto Sobre la Venta.
 // Mira que esta bien tipada, pero se pueden dejar muchos elementos sin tipar.
-export function calculaISV( productos: Producto[] ): [number, number] {
+// Mira que puedes tipar cada uno de los elementos por separado.
+export function calculaISV( productos: Producto[] ): [number , (number| string)] {
 // function calculaISV( productos: Producto[] ){
 
     // let total= 0;

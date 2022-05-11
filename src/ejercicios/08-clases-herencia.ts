@@ -79,10 +79,12 @@ class Guerrero {
     alterEgo: string;
     edad: number;
     nombreReal: number;
+    pv: (string|number) = 50;
     ataque(): Personaje {
-        console.log(`Ataque de 2000 Pts`);
+        console.log(`Ataque de 20 Pts`);
         return;
     }
+    defensa = () => {console.log(`Fortalecimiento de defenza ${this.pv}`);}
 }
 
 
@@ -93,14 +95,14 @@ interface Personaje {
     alterEgo?: string;
     edad?: number;
     nombreReal?: number;
-    ataque?: () => void;
+    ataque?: () => (void|string);
 
 }
 
 // Las interfaces no existen en JavaScript
 // por lo que al compilarce es como si no existieran.
 
-// Heroe no ereda de PersonaNormal, por lo tanto solo
+// Heroe no hereda de PersonaNormal, por lo tanto solo
 // lleva 2 argumentos en el constructor.
 const ironman = new Heroe('Ironman',35);
 // const spiderman: Personaje = {}

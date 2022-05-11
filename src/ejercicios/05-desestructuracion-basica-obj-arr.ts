@@ -43,8 +43,9 @@ const {autor, anio} = detalles;
 // 2da Forma de destructurar los Detalles.
 // Pero se ve más engorroso aunque más comprimido.
 // const { volumen, segundo, cancion, detalles: {anio, autor}} = reproductor;
-// También le podemos dar un nombre de variable default a esa variable destructurada.
-// Solo colocamos delante de ella la variable que queremos que tome ese valor.
+
+// * También le podemos dar un nombre de variable default a esa variable destructurada.
+//   Solo colocamos delante de ella la variable que queremos que tome ese valor.
 const { volumen: v, segundo: s, cancion: c, detalles: {anio: fecha, autor: responsable}} = reproductor;
 
 

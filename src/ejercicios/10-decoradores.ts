@@ -26,7 +26,7 @@ function classDecorator<T extends { new (...args: any []): {} }>(
   ) {
     return class extends constructor {
       newProperty = "new property";
-      hello = "overrfide";
+      hello = "override";
   };
 }
 
@@ -34,7 +34,7 @@ function classDecorator<T extends { new (...args: any []): {} }>(
 // Lo que veremos que si cambia es el decorador.
 // dependiendo de lo que estemos usando.
 
-// Este decorador trabaja a un nivel antes que la cración de una nueva instancia.
+// Este decorador trabaja a un nivel antes que la creación de una nueva instancia.
 // Los decoradores sirven para añadir o expadir funcionalidades.
 // Angular los utiliza para diferenciar diferentes componentes. 
 // Si una Clase es un Pipe, o si es una Directiva o etc.
@@ -44,7 +44,7 @@ function classDecorator<T extends { new (...args: any []): {} }>(
 class MiSuperClase {
 
     public miPropiedad: string = 'ABC123';
-                    I
+
      imprimir() {
           console. log('Hola Mundo');
      }

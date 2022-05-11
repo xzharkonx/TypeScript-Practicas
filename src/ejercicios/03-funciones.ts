@@ -6,7 +6,7 @@ console.log('Hola Mundo!');
     ===== Código de TypeScript =====
 */
 
-// # Funciòn con argumentos de tipo number
+// # Función con argumentos de tipo number
 function sumarString(a: number, b: number){
     return a + b.toString();
 }
@@ -23,17 +23,19 @@ const sumarFlecha = (a: number, b: number): number => a + b;
 // Así que primero van los obligatorios, luego los opcionales
 // y por último los que tiene un valor default.
 function multiplicar(numero: number, otroNumero?: number, base: number = 2): number{
-    return numero * base;
+    // return numero * base;
+    otroNumero != null || otroNumero != undefined ?  base = otroNumero * base : base =  numero * base;
+    return base;
 }
 
 const resultadoString = sumarString(10,20);
 const resultadoNumber = sumarNum(10,20);
 const resultadoFlecha = sumarFlecha(20,30);
 // El primer argumento lo toma, pero el segundo se va al default.
-// const resultadoMultiplicar = multiplicar(20,30); 
+// const resultadoMultiplicar = multiplicar(20,30); // 30*20=600
 // El primer argumento lo toma, pero el segundo ponemos un valor default y
 // al tercero ya caeria el valor pero sobreescribiendo el valor asignado.
-const resultadoMultiplicar = multiplicar(20,0,10);
+const resultadoMultiplicar = multiplicar(20,0,10); // 0*10=0 | Otro caso (20,10): 10*20=200
 console.log(resultadoString, resultadoNumber, resultadoFlecha, resultadoMultiplicar);
 
 // == Funciones con Objetos como argumentos ==
@@ -60,6 +62,7 @@ interface PersonajeLOR {
 interface EnemigoLOR {
     nombre: string;
     pv: number;
+    mostrarHP: () => void;
 }
 
 // Ejemplo de una función para curar un personaje.
@@ -77,24 +80,45 @@ function curar (personaje: PersonajeLOR | EnemigoLOR, curarX: number): void { //
 // más optimizado para la memoria, recuerda que los atributos de
 // los objetos si pueden cambiar).
 const nuevoPersonaje: PersonajeLOR = {
+
     nombre: 'Luis',
     pv: 50,
+
     // aumentarHP(n: number){this.pv += n}, // Una sola línea, cosas específicas.
     // aumentarHP(n: number){ // Sin tipar.
-    aumentarHP(n: number): void | string{
+
+    aumentarHP(n: number): void | string {
+
         if(this.pv === 100){return;}
-        this.pv += n
+
+        this.pv += n;
         console.log(`haz sanado: \"${n} pvs\"`);
+
         if(this.pv >100){
             console.log("Tus pv se han sanado.");
-            this.pv=100}
+            this.pv=100;
+        }
     },
     mostrarHP(){
         console.log('Puntos de vida: ', this.pv);
     }
 }
 
+
+const nuevoEnemigo: EnemigoLOR = {
+    nombre: 'Warrior Black',
+    pv: 80,
+    // mostrarHP: () => { console.log('Puntos de vida: ${this.pv}')},
+    mostrarHP(){
+        console.log('Puntos de vida: ', this.pv);
+    }
+}
+
 curar ( nuevoPersonaje, 30 );
+curar ( nuevoEnemigo, 10 );
+
 nuevoPersonaje.mostrarHP();
+nuevoEnemigo.mostrarHP();
+
 nuevoPersonaje.aumentarHP(30);
 nuevoPersonaje.mostrarHP();
